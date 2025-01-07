@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -35,14 +36,9 @@ def delete_firm(id):
     firms = [firm for firm in firms if firm['id'] != id]
     return jsonify({"message": "Firma başarıyla silindi"}), 200
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-import os
-
 # Varsayılan port, Render tarafından sağlanan $PORT değerinden alınır.
-port = int(os.environ.get("PORT", 5000))
-
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
 

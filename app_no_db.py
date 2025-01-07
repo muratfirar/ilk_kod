@@ -37,3 +37,12 @@ def delete_firm(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+import os
+
+# Varsayılan port, Render tarafından sağlanan $PORT değerinden alınır.
+port = int(os.environ.get("PORT", 5000))
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=port)
+
